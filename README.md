@@ -24,12 +24,18 @@ or download a [zip file](https://github.com/techaploog/image-submission/archive/
 
 ## Start Server Guide
 1. cd image-submitting
-2. npm install
+2. npm run install
 3. npm run deploy
 
-**  These npm script works for `windows` OS.
+**  These npm script works for `Windows` OS.
 
-*** linux & macOS need to config `scripts` in `/client/package.json` before `npm run deploy`
+*** `linux` and `macOS` need to update `scripts` in `package.json` 
+
+before run `npm run deploy` script.
+```
+/package.json
+/client/package.json
+```
 
 ## Server URL
 ```
