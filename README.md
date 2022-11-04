@@ -1,4 +1,4 @@
-# Image Submitting Project
+# Image Submission Project
 
 ## Objective
 Collect images and build dataset for automated stock counting system.
@@ -18,9 +18,9 @@ file name   => `[class]_[countResult].jpg`
 
 ## Download Project
 ```
-git clone https://github.com/techaploog/image-submitting.git
+git clone https://github.com/techaploog/image-submission.git
 ```
-or download a [zip file](https://github.com/techaploog/image-submitting/archive/refs/heads/main.zip)
+or download a [zip file](https://github.com/techaploog/image-submission/archive/refs/heads/main.zip)
 
 ## Start Server Guide
 1. cd image-submitting
