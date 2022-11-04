@@ -27,6 +27,8 @@ or download a [zip file](https://github.com/techaploog/image-submission/archive/
 2. npm install
 3. npm run deploy
 
+**  These npm script works for `windows` OS.
+
 *** linux & macOS need to config `scripts` in `/client/package.json` before `npm run deploy`
 
 ## Server URL

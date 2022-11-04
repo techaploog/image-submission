@@ -1,7 +1,7 @@
 {
-  "name": "img-submitting-server",
+  "name": "img-submission-server",
   "version": "1.0.0",
-  "description": "Image Submitting API",
+  "description": "Image Submission API",
   "main": "src/server.js",
   "scripts": {
     "watch": "nodemon src/server.js",
