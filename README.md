@@ -1,9 +1,14 @@
 # Image Submitting Project
 
 ## Objective
-Collect images and build dataset.
+Collect images and build dataset for automated stock counting system.
 **using** : Express - React and Node.
 ###### This MVP use a `.csv` file as database.
+
+## Images Dataset
+image path  => `/server/image`
+file name   => `[class]_[countResult].jpg`
+
 
 ## Reqirements
 1. NodeJs : [https://nodejs.org/en/](https://nodejs.org/en/).
@@ -20,4 +25,10 @@ or download a [zip file](https://github.com/techaploog/image-submitting/archive/
 3. npm run deploy
 
 ## Server URL
-http://localhost:8000
+```
+deployment server : http://localhost:8000
+
+development server :
+ (frontend) http://localhost:3000
+ (backend)  http://localhost:8000
+```
