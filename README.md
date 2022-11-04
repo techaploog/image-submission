@@ -2,11 +2,14 @@
 
 ## Objective
 Collect images and build dataset for automated stock counting system.
-**using** : Express - React and Node.
-###### This MVP use a `.csv` file as database.
 
-## Images Dataset
+**using** : Express - React and Node.
+
+###### This prototype use a `.csv` file as database.
+
+## Ouput -> Images Dataset
 image path  => `/server/image`
+
 file name   => `[class]_[countResult].jpg`
 
 
@@ -26,7 +29,8 @@ or download a [zip file](https://github.com/techaploog/image-submitting/archive/
 
 ## Server URL
 ```
-deployment server : http://localhost:8000
+deployment server : 
+            http://localhost:8000
 
 development server :
  (frontend) http://localhost:3000
