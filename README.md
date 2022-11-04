@@ -1,4 +1,4 @@
-# Image Submission Project
+# Images Submission Project
 
 ## Objective
 Collect images and build dataset for automated stock counting system.
