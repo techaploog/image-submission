@@ -26,7 +26,7 @@ or download a [zip file](https://github.com/techaploog/image-submission/archive/
 1. cd image-submitting
 2. npm install
 3. npm run deploy
-
+(linux & macOS need to config `script` in `package.json` before `npm run deploy`)
 ## Server URL
 ```
 deployment server : 
