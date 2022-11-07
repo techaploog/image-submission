@@ -13,7 +13,7 @@ function loadRequestList(){
                 columns: true,
             }))
             .on('data', async (data) => {
-                requestList.set(data.itemNo,{...data,isChecked:false});
+                requestList.set(data.itemNo,{...data,checkStatus:0});
             })
             .on('error', (err) => {
                 console.log(err);
@@ -28,7 +28,7 @@ function loadRequestList(){
 }
 
 function getAllRequests(){
-    return  Array(Object.fromEntries(requestList));
+    return  [ ... requestList.values()];
 }
 
 function getIsExistsById(id){
@@ -41,7 +41,14 @@ function getRequestById(id){
 
 function deleteRequestById(id){
     const targetItem = requestList.get(id);
-    targetItem.isChecked = true;
+    targetItem.checkStatus = 2;
+    requestList.set(id,targetItem);
+    return targetItem;
+}
+
+function patchStatus(id,newStatus){
+    const targetItem = requestList.get(id);
+    targetItem.checkStatus = newStatus;
     requestList.set(id,targetItem);
     return targetItem;
 }
@@ -52,4 +59,5 @@ module.exports = {
     getIsExistsById,
     getRequestById,
     deleteRequestById,
+    patchStatus,
 }

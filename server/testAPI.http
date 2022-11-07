@@ -9,3 +9,13 @@ DELETE http://localhost:8000/api/list/20
 
 POST http://localhost:8000/api/upload
 ###
+
+PATCH  http://localhost:8000/api/upload
+Content-Type: application/json
+
+{
+    "id":4,
+    "checkStatus":2
+}
+
+###

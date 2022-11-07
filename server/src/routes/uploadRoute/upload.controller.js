@@ -1,9 +1,12 @@
 const path = require('path');
-
 const formidable = require('formidable');
 
 // const multer = require('multer');
 // const upload = multer({ dest: UPLOADE_PATH }).single('picture');
+
+const { patchStatus,getIsExistsById } = require('../../models/reqlist.model');
+const { throws } = require('assert');
+const { error } = require('console');
 
 const UPLOADE_PATH = path.join(__dirname,'..','..','..','uploaded_files');
 const form = new formidable.IncomingForm();
@@ -40,6 +43,26 @@ function httpUploadPicture(req,res){
     return res.status(200).json({msg:"Developing ... "});
 }
 
+function httpPatchStatus(req,res){
+    const itemId = String(req.body.id);
+    const newStatus = Number(req.body.checkStatus);
+
+    if (!getIsExistsById(itemId)){
+        return res.status(400).json({
+            err:`Cannot found request number '${itemId}'.`
+        })
+    }
+
+    if (newStatus >= 0 && newStatus <= 2){
+        return res.status(200).json(patchStatus(itemId,newStatus));
+    }else{
+        return res.status(400).json({
+            err:`Invalid new status '${req.body.checkStatus}'.`
+        })
+    }
+}
+
 module.exports = {
     httpUploadPicture,
+    httpPatchStatus,
 }
