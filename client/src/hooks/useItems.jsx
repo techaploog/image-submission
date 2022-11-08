@@ -4,7 +4,7 @@ import { httpGetAllItems } from "./request";
 
 const useItems = () => {
   const [itemsList, setItemsList] = useState([]);
-
+  
   const loadItems = useCallback(async () => {
     const fetchData = await httpGetAllItems();
     setItemsList(fetchData);
@@ -14,7 +14,10 @@ const useItems = () => {
     loadItems();
   }, [loadItems]);
   
-  return itemsList;
+  return {
+    itemsList,
+    loadItems,
+  };
 };
 
 export default useItems;

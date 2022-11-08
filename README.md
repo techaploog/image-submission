@@ -5,12 +5,12 @@ Collect images and build dataset for automated stock counting system.
 
 **using** : Express - React and Node.
 
-###### This prototype use a `.csv` file as database.
+###### This prototype version use a `.csv` file as a database.
 
 ## Ouput -> Images Dataset
-image path  => `/server/image`
+image path  => `/server/uploaded_files`
 
-file name   => `[class]_[countResult].jpg`
+file name   => `[class]_[box/pcs]_[countResult].jpg`
 
 
 ## Reqirements
@@ -36,6 +36,9 @@ before run `npm run deploy` script.
 /package.json
 /client/package.json
 ```
+
+### Update Items List
+Update items list directly at `/server/data/counting_list.csv`.
 
 ## Server URL
 ```
