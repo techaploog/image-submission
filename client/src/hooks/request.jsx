@@ -28,10 +28,18 @@ async function httpPatchItemStatus(id,itemStatus){
     return await response.json();
 }
 
-//TODO: httpPostSubmitItem
+async function httpPostSubmitItem(data){
+    console.log('[httpPostSubmitItem] fetching data...')
+    const response = await fetch(`${API_URL}/api/upload/`,{
+        method:'POST',
+        body:data,
+    });
+    return await response.json();
+}
 
 export {
     httpGetAllItems,
     httpGetItemById,
     httpPatchItemStatus,
+    httpPostSubmitItem,
 }

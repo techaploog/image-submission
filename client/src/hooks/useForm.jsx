@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { httpPatchItemStatus } from "./request";
+import { httpPatchItemStatus,httpPostSubmitItem } from "./request";
 
 const useForm = () => {
   const [itemsDetails, setItemsDetails] = useState([]);
@@ -14,9 +14,10 @@ const useForm = () => {
     return await httpPatchItemStatus(itemId,0);
   }
 
-  const submitCheck = async (itemId) => {
+  const submitCheck = async (itemId,values) => {
     //TODO: update this function
-    return await httpPatchItemStatus(itemId,2);
+    await httpPatchItemStatus(itemId,2);
+    await httpPostSubmitItem(values);
   }
 
 

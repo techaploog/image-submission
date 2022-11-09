@@ -17,8 +17,8 @@ const AppLayout = () => {
   const completed = itemsList ? itemsList.filter((i)=> (i.checkStatus !== 0)).length : 0 ;
   const total = itemsList ? itemsList.length : 0;
 
-  const onSubmitCheck = (id) => {
-    submitCheck(id);
+  const onSubmitCheck = (id,values) => {
+    submitCheck(id,values);
     loadItems();
   }
 
