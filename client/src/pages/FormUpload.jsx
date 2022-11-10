@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 const FormUpload = (props) => {
   const naviage = useNavigate();
   const [inputError,setInputError] = useState(false);
-  const [fileError,setFileError] = useState(false);
+  const [fileError,setFileError] = useState({error:true,msg:''});
+  const [file,setFile] = useState(null);
 
   const {itemNo, kanban, partNo, partName, supplier, address, dock } =
     props.itemsDetails;
@@ -18,26 +19,43 @@ const FormUpload = (props) => {
     }
   };
 
+  const onFileChangedHandler = (e) => {
+    const uploadFile = e.target.files[0];
+    if(!uploadFile){
+      setFile(null);
+      return setFileError({error:true,msg:''});
+    }
+    if (uploadFile.size > 524288){
+      return setFileError({error:true,msg:'Uploaded file size must < 500 kB'});
+    }
+    if (! uploadFile.type.includes('image')){
+      return setFileError({error:true,msg:'Uploaded file must be an image'});
+    }
+    setFileError({error:false,msg:''});
+    setFile(uploadFile);
+  };
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const values = Object.fromEntries(data.entries());
 
     setInputError(false);
-    setFileError(false);
+    setFileError({error:true,msg:''});
+    setFile(null);
 
     try{
       const result = Number(values.countResult)
       if (isNaN(result)){
         setInputError(true);
       }else if (values.countImg.name.length === 0)
-        setFileError(true);
+        setFileError({error:true,msg:'Invalid file or no file selected !!'});
       else{
         if (props.onSubmitCheck){
           props.onSubmitCheck(props.itemsDetails.itemNo,data);
         }
-        // TODO: navigate back to home
-        // naviage('/');
+        e.currentTarget.querySelector("input[type='file']").value = '';
+        naviage('/');
       }
 
     }catch (err){
@@ -58,12 +76,12 @@ const FormUpload = (props) => {
                   [ {kanban} ] {` . `} {partNo}
                 </h1>
               </div>
-              <div className={`flex flex-col my-2 py-2 border ${ fileError ? "border-red-400" : "border-yellow-400"}`}>
-                <div>
+              <div className={`flex flex-col justify-center my-2 py-2 border ${ fileError.error ? "border-red-400" : "border-yellow-400"}`}>
+                <div className="mx-auto w-11/12 h-40 overflow-hidden">
                   <img 
-                    //TODO: update this to show picture
-                    // alt={partNo}
-                    className="mx-auto m-2 w-11/12 h-40 flex justify-center" 
+                    className="w-full h-full"
+                    // className="mx-auto m-2 w-11/12 h-40" 
+                    src={file ? URL.createObjectURL(file) : null}
                   />
                 </div>
                 <div>
@@ -71,11 +89,13 @@ const FormUpload = (props) => {
                     name="countImg"
                     type="file" 
                     className="mx-auto text-xs" 
+                    accept="image/png, image/jpeg"
+                    onChange={(e)=>onFileChangedHandler(e)}
                   />
                 </div>
-                { fileError ? 
+                { fileError.error ? 
                   <label className="text-xs text-red-600 mt-1">
-                    Invalid file or no file selected !!
+                    {fileError.msg}
                   </label>
                 : null
                 }
@@ -136,9 +156,10 @@ const FormUpload = (props) => {
             </button>
             {kanban ? (
               <button
-                className="mx-3 px-5 py-1 border border-green-400 bg-green-200 rounded-xl"
+                className={`mx-3 px-5 py-1 border rounded-xl ${!inputError && !fileError.error ? " border-green-400 bg-green-200" : " border-red-400 bg-red-200"}`}
                 type="submit"
                 value="Submit"
+                disabled={inputError || fileError.error}
               >
                 Submit
               </button>

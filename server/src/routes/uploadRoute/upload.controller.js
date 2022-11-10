@@ -39,7 +39,7 @@ function httpUploadPicture(req, res) {
     const oldFileName = recFile.originalFilename;
 
     const {countKanban,countType,countResult} = fields;
-    const newFileName = `${countKanban}_${countType === 0 ? 'box' : 'pcs'}_${countResult}_${currentTime}.${oldFileName.split('.').slice(-1)}`
+    const newFileName = `${countKanban}_${countType === '0' ? 'box' : 'pcs'}_${countResult === ''? "0" : countResult}_${currentTime}.${oldFileName.split('.').slice(-1)}`
 
     // console.log("currentTime -> ",currentTime);
     // console.log("full path -> ",recFilePath);

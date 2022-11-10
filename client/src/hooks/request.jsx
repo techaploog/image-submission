@@ -2,19 +2,19 @@ const API_URL = 'http://localhost:8000';
 
 // load all Items Check and return as JSON
 async function httpGetAllItems(){
-    console.log('[httpGetAllItems] fetching data...');
+    // console.log('[httpGetAllItems] fetching data...');
     const response = await fetch(`${API_URL}/api/list`);
     return await response.json();
 }
 
 async function httpGetItemById(id){
-    console.log('[httpGetItemById] fetching data...')
+    // console.log('[httpGetItemById] fetching data...')
     const response = await fetch(`${API_URL}/api/list/${id}`);
     return await response.json();
 }
 
 async function httpPatchItemStatus(id,itemStatus){
-    console.log('[httpPatchItemStatus] fetching data...')
+    // console.log('[httpPatchItemStatus] fetching data...')
     const response = await fetch(`${API_URL}/api/upload/`,{
         method:'PATCH',
         headers:{
@@ -29,7 +29,7 @@ async function httpPatchItemStatus(id,itemStatus){
 }
 
 async function httpPostSubmitItem(data){
-    console.log('[httpPostSubmitItem] fetching data...')
+    // console.log('[httpPostSubmitItem] fetching data...')
     const response = await fetch(`${API_URL}/api/upload/`,{
         method:'POST',
         body:data,

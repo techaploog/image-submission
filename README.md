@@ -1,5 +1,8 @@
 # Images Submission Project
 
+## Status
+This `protoype` is COMPLETED.
+
 ## Objective
 Collect images and build dataset for automated stock counting system.
 
@@ -14,7 +17,7 @@ file name   => `[class]_[box/pcs]_[countResult].jpg`
 
 
 ## Reqirements
-1. NodeJs : [https://nodejs.org/en/](https://nodejs.org/en/).
+   [NodeJs](https://nodejs.org/en/) : `^19.0.0`.
 
 ## Download Project
 ```
@@ -38,7 +41,7 @@ before run `npm run deploy` script.
 ```
 
 ### Update Items List
-Update items list directly at `/server/data/counting_list.csv`.
+Update items list manually at `/server/data/counting_list.csv`.
 
 ## Server URL
 ```
