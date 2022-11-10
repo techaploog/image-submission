@@ -12,6 +12,7 @@
 /build
 /public
 /uploaded_files/*
+!/uploaded_files/_readme.txt
 
 # misc
 .DS_Store
