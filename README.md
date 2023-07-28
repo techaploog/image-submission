@@ -4,7 +4,9 @@
 This `protoype` is COMPLETED.
 
 ## Objective
-Collect images and build dataset for automated stock counting system.
+To collect images and build dataset for automated stock counting system.
+Allow our production staffs to submit physical stock result with images, faster.
+
 
 **using** : Express - React and Node.
 
